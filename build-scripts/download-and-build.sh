@@ -1,6 +1,6 @@
 #!/bin/bash
 #set -e
-##################################################################################################################
+############################### Payra OS ############################### Payra OS ###########################################################
 # Author 	: Erik Dubois
 # Website   : https://www.erikdubois.be
 # Website   : https://www.alci.online
@@ -10,29 +10,29 @@
 # Website	: https://www.arcolinuxb.com
 # Website	: https://www.arcolinuxiso.com
 # Website	: https://www.arcolinuxforum.com
-##################################################################################################################
+############################### Payra OS ############################### Payra OS ###########################################################
 #
 #   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
 #
-##################################################################################################################
+############################### Payra OS ############################### Payra OS ###########################################################
 #tput setaf 0 = black 
 #tput setaf 1 = red 
-#tput setaf 2 = green
+#tput setaf 6 = green
 #tput setaf 3 = yellow 
 #tput setaf 4 = dark blue 
 #tput setaf 5 = purple
 #tput setaf 6 = cyan 
 #tput setaf 7 = gray 
 #tput setaf 8 = light blue
-##################################################################################################################
+############################### Payra OS ############################### Payra OS ###########################################################
 
 echo
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 tput setaf 6
 echo "Phase 1 : "
 echo "- Setting General parameters"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
 	#Let us set the desktop"
@@ -41,7 +41,7 @@ echo
 	desktop="gnome"
 	dmDesktop="gnome"
 
-	payraosVersion='v21.12.02'
+	payraosVersion='badblood'
 
 	isoLabel='payraos-'$payraosVersion'-x86_64.iso'
 
@@ -51,7 +51,7 @@ echo
 	outFolder=$HOME"/Payraos-Out"
 	archisoVersion=$(sudo pacman -Q archiso)
 
-	echo "################################################################## "
+	echo "############################### Payra OS ################################### "
 	echo "Building the desktop                   : "$desktop
 	echo "Building version                       : "$payraosVersion
 	echo "Iso label                              : "$isoLabel
@@ -59,34 +59,36 @@ echo
 	echo "What is the required archiso version?  : "$archisoRequiredVersion
 	echo "Build folder                           : "$buildFolder
 	echo "Out folder                             : "$outFolder
-	echo "################################################################## "
+	echo "############################### Payra OS ################################### "
+	
+	personalrepo = false
 
 	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
 		tput setaf 6
-		echo "##################################################################"
+		echo "############################### Payra OS ###################################"
 		echo "Archiso has the correct version. Continuing ..."
-		echo "##################################################################"
+		echo "############################### Payra OS ###################################"
 		tput sgr0
 	else
 	tput setaf 1
-	echo "###################################################################################################"
+	echo "############################### Payra OS ############################### Payra OS ############################################"
 	echo "You need to install the correct version of Archiso"
 	echo "Use 'sudo downgrade archiso' to do that"
 	echo "or update your system"
-	echo "###################################################################################################"
+	echo "############################### Payra OS ############################### Payra OS ############################################"
 	tput sgr0
 	fi
 
 echo
-echo "################################################################## "
-tput setaf 2
+echo "############################### Payra OS ################################### "
+tput setaf 6
 echo "Phase 2 :"
 echo "- Checking if archiso is installed"
 echo "- Saving current archiso version to readme"
 echo "- Making mkarchiso verbose"
 echo "- Getting Carli key and mirror"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
 	package="archiso"
@@ -99,30 +101,31 @@ echo
 			echo "Archiso is already installed"
 
 	else
+			sudo pacman -S --noconfirm archiso
 
 		#checking which helper is installed
-		if pacman -Qi yay &> /dev/null; then
+		# if pacman -Qi yay &> /dev/null; then
 
-			echo "################################################################"
-			echo "######### Installing with yay"
-			echo "################################################################"
-			yay -S --noconfirm $package
+			# echo "############################### Payra OS ########################################"
+			# echo "######### Installing with yay"
+			# echo "############################### Payra OS ########################################"
+			# yay -S --noconfirm $package
 
-		elif pacman -Qi trizen &> /dev/null; then
+		# elif pacman -Qi trizen &> /dev/null; then
 
-			echo "################################################################"
-			echo "######### Installing with trizen"
-			echo "################################################################"
-			trizen -S --noconfirm --needed --noedit $package
+			# echo "############################### Payra OS ########################################"
+			# echo "######### Installing with trizen"
+			# echo "############################### Payra OS ########################################"
+			# trizen -S --noconfirm --needed --noedit $package
 
-		fi
+		# fi
 
 		# Just checking if installation was successful
 		if pacman -Qi $package &> /dev/null; then
 
-			echo "################################################################"
+			echo "############################### Payra OS ########################################"
 			echo "#########  "$package" has been installed"
-			echo "################################################################"
+			echo "############################### Payra OS ########################################"
 
 		else
 
@@ -143,77 +146,77 @@ echo
 
 	#----------------------------------------------------------------------------------
 
-	package="carli-keyring"
+	# package="carli-keyring"
 
 	#checking if application is already installed or else install
-	if pacman -Qi $package &> /dev/null; then
+	# if pacman -Qi $package &> /dev/null; then
 
-			echo "################################################################"
-			echo "Carli keyring is already installed"
-			echo "################################################################"
+			# echo "############################### Payra OS ########################################"
+			# echo "Carli keyring is already installed"
+			# echo "############################### Payra OS ########################################"
 
-	else
+	# else
 
-		wget https://github.com/arcolinuxiso/carli_repo/raw/master/x86_64/carli-keyring-3.1-2-any.pkg.tar.zst -O /tmp/carli-keyring-3.1-2-any.pkg.tar.zst
-		sudo pacman -U --noconfirm --needed /tmp/carli-keyring-3.1-2-any.pkg.tar.zst
+		# wget https://github.com/arcolinuxiso/carli_repo/raw/master/x86_64/carli-keyring-3.1-2-any.pkg.tar.zst -O /tmp/carli-keyring-3.1-2-any.pkg.tar.zst
+		# sudo pacman -U --noconfirm --needed /tmp/carli-keyring-3.1-2-any.pkg.tar.zst
 		
-	fi
+	# fi
 
 	# Just checking if installation was successful
-	if pacman -Qi $package &> /dev/null; then
+	# if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "#########  "$package" has been installed"
-		echo "################################################################"
+		# echo "############################### Payra OS ########################################"
+		# echo "#########  "$package" has been installed"
+		# echo "############################### Payra OS ########################################"
 
-	else
+	# else
 
-		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-		echo "!!!!!!!!!  "$package" has NOT been installed"
-		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-		exit 1
-	fi
+		# echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		# echo "!!!!!!!!!  "$package" has NOT been installed"
+		# echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		# exit 1
+	# fi
 
 	#----------------------------------------------------------------------------------
 
-	package="carli-mirrorlist"
+	# package="carli-mirrorlist"
 
 	#checking if application is already installed or else install
-	if pacman -Qi $package &> /dev/null; then
+	# if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "Carli mirrorlist is already installed"
-		echo "################################################################"
+		# echo "############################### Payra OS ########################################"
+		# echo "Carli mirrorlist is already installed"
+		# echo "############################### Payra OS ########################################"
 
-	else
+	# else
 
-		wget https://github.com/arcolinuxiso/carli_repo/raw/master/x86_64/carli-mirrorlist-22.03-01-any.pkg.tar.zst -O /tmp/carli-mirrorlist-22.03-01-any.pkg.tar.zst
-		sudo pacman -U --noconfirm --needed /tmp/carli-mirrorlist-22.03-01-any.pkg.tar.zst
-	fi
+		# wget https://github.com/arcolinuxiso/carli_repo/raw/master/x86_64/carli-mirrorlist-22.03-01-any.pkg.tar.zst -O /tmp/carli-mirrorlist-22.03-01-any.pkg.tar.zst
+		# sudo pacman -U --noconfirm --needed /tmp/carli-mirrorlist-22.03-01-any.pkg.tar.zst
+	# fi
 
 	# Just checking if installation was successful
-	if pacman -Qi $package &> /dev/null; then
+	# if pacman -Qi $package &> /dev/null; then
 
-		echo "################################################################"
-		echo "#########  "$package" has been installed"
-		echo "################################################################"
+		# echo "############################### Payra OS ########################################"
+		# echo "#########  "$package" has been installed"
+		# echo "############################### Payra OS ########################################"
 
-	else
+	# else
 
-		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-		echo "!!!!!!!!!  "$package" has NOT been installed"
-		echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-		exit 1
-	fi	
+		# echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		# echo "!!!!!!!!!  "$package" has NOT been installed"
+		# echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+		# exit 1
+	# fi	
 
 echo
-echo "################################################################## "
-tput setaf 2
+echo "############################### Payra OS ################################### "
+tput setaf 6
 echo "Phase 3 :"
 echo "- Deleting the build folder if one exists"
 echo "- Copying the Archiso folder to build folder"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
 	echo "Deleting the build folder if one exists - takes some time"
@@ -225,25 +228,25 @@ echo
 	cp -r ../archiso $buildFolder/archiso
 
 echo
-echo "################################################################## "
-tput setaf 2
+echo "############################### Payra OS ################################### "
+tput setaf 6
 echo "Phase 4 :"
-#echo "- Deleting any files in /etc/skel"
-#echo "- Getting the last version of bashrc in /etc/skel"
+echo "- Deleting any files in /etc/skel"
+echo "- Getting the last version of bashrc in /etc/skel"
 echo "- Removing the old packages.x86_64 file from build folder"
 echo "- Copying the new packages.x86_64 file to the build folder"
 echo "- Changing group for polkit folder"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
-	#echo "Deleting any files in /etc/skel"
-	#rm -rf $buildFolder/archiso/airootfs/etc/skel/.* 2> /dev/null
-	#echo
+	echo "Deleting any files in /etc/skel"
+	rm -rf $buildFolder/archiso/airootfs/etc/skel/.* 2> /dev/null
+	echo
 
-	#echo "Getting the last version of bashrc in /etc/skel"
-	#echo
-	#wget https://raw.githubusercontent.com/arcolinux/arcolinux-root/master/etc/skel/.bashrc-latest -O $buildFolder/archiso/airootfs/etc/skel/.bashrc
+	echo "Getting the last version of bashrc in /etc/skel"
+	echo
+	wget https://raw.githubusercontent.com/PayraOSDev/payraos-root/main/etc/skel/.bashrc -O $buildFolder/archiso/airootfs/etc/skel/.bashrc
 
 	echo "Removing the old packages.x86_64 file from build folder"
 	rm $buildFolder/archiso/packages.x86_64
@@ -256,33 +259,33 @@ echo
 	#is not working so fixing this during calamares installation
 
 echo
-echo "################################################################## "
-tput setaf 2
+echo "############################### Payra OS ################################### "
+tput setaf 6
 echo "Phase 5 : "
 echo "- Changing all references"
 echo "- Adding time to /etc/dev-rel"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
 	#Setting variables
 
 	#profiledef.sh
-	oldname1='iso_name="carli'
-	newname1='iso_name="carli'
+	oldname1='iso_name="payraos"'
+	newname1='iso_name="payraos"'
 
-	oldname2='iso_label="carli'
-	newname2='iso_label="carli'
+	oldname2='iso_label="payraos"'
+	newname2='iso_label="payraos"'
 
-	oldname3='Carli'
-	newname3='Carli'
+	oldname3='PayraOS'
+	newname3='PayraOS'
 
 	#hostname
-	oldname4='Carli'
-	newname4='Carli'
+	oldname4='PayraOS'
+	newname4='PayraOS'
 
 	#sddm.conf user-session
-	oldname5='Session=cinnamon'
+	oldname5='Session=gnome'
 	newname5='Session='$dmDesktop
 
 	echo "Changing all references"
@@ -291,7 +294,7 @@ echo
 	sed -i 's/'$oldname2'/'$newname2'/g' $buildFolder/archiso/profiledef.sh
 	sed -i 's/'$oldname3'/'$newname3'/g' $buildFolder/archiso/airootfs/etc/dev-rel
 	sed -i 's/'$oldname4'/'$newname4'/g' $buildFolder/archiso/airootfs/etc/hostname
-	sed -i 's/'$oldname5'/'$newname5'/g' $buildFolder/archiso/airootfs/etc/sddm.conf
+	# sed -i 's/'$oldname5'/'$newname5'/g' $buildFolder/archiso/airootfs/etc/sddm.conf
 
 	echo "Adding time to /etc/dev-rel"
 	date_build=$(date -d now)
@@ -300,24 +303,24 @@ echo
 
 
 echo
-echo "###########################################################"
-tput setaf 2
+echo "############################### Payra OS ###################################"
+tput setaf 6
 echo "Phase 6 :"
 echo "- Cleaning the cache from /var/cache/pacman/pkg/"
 tput sgr0
-echo "###########################################################"
+echo "############################### Payra OS ###################################"
 echo
 
 	echo "Cleaning the cache from /var/cache/pacman/pkg/"
 	yes | sudo pacman -Scc
 
 echo
-echo "################################################################## "
-tput setaf 2
+echo "############################### Payra OS ################################### "
+tput setaf 6
 echo "Phase 7 :"
 echo "- Building the iso - this can take a while - be patient"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
 	[ -d $outFolder ] || mkdir $outFolder
@@ -327,51 +330,54 @@ echo
 
 
 echo
-echo "###################################################################"
-tput setaf 2
+echo "############################### Payra OS ####################################"
+tput setaf 6
 echo "Phase 8 :"
 echo "- Creating checksums"
 echo "- Copying pgklist"
 tput sgr0
-echo "###################################################################"
+echo "############################### Payra OS ####################################"
 echo
 
 	cd $outFolder
 
 	echo "Creating checksums for : "$isoLabel
-	echo "##################################################################"
+	echo "############################### Payra OS ###################################"
 	echo
 	echo "Building sha1sum"
 	echo "########################"
-	sha1sum $isoLabel | tee $isoLabel.sha1
+	sha1sum $outFolder/$isoLabel | tee $outFolder/$isoLabel.sha1
 	echo "Building sha256sum"
 	echo "########################"
-	sha256sum $isoLabel | tee $isoLabel.sha256
+	sha256sum $outFolder/$isoLabel | tee $outFolder/$isoLabel.sha256
+	echo "Building sha512sum"
+	echo "########################"
+	sha512sum $outFolder/$isoLabel | tee $outFolder/$isoLabel.sha512
 	echo "Building md5sum"
 	echo "########################"
-	md5sum $isoLabel | tee $isoLabel.md5
+	md5sum $outFolder/$isoLabel | tee $outFolder/$isoLabel.md5
 	echo
 	echo "Moving pkglist.x86_64.txt"
 	echo "########################"
 	cp $buildFolder/iso/arch/pkglist.x86_64.txt  $outFolder/$isoLabel".pkglist.txt"
 	
 echo
-echo "##################################################################"
-tput setaf 2
+echo "############################### Payra OS ###################################"
+tput setaf 6
 echo "Phase 9 :"
 echo "- Making sure we start with a clean slate next time"
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
 
 	echo "Deleting the build folder if one exists - takes some time"
 	[ -d $buildFolder ] && sudo rm -rf $buildFolder
 
 echo
-echo "##################################################################"
-tput setaf 2
+echo "############################### Payra OS ###################################"
+tput setaf 6
 echo "DONE"
 echo "- Check your out folder :"$outFolder
 tput sgr0
-echo "################################################################## "
+echo "############################### Payra OS ################################### "
 echo
