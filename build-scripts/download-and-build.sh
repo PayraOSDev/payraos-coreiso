@@ -269,7 +269,6 @@ echo "############################### Payra OS #################################
 echo
 
 	#Setting variables
-
 	#profiledef.sh
 	oldname1='iso_name="payraos"'
 	newname1='iso_name="payraos"'
