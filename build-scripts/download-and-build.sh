@@ -28,7 +28,7 @@
 
 echo
 echo "################################################################## "
-tput setaf 2
+tput setaf 6
 echo "Phase 1 : "
 echo "- Setting General parameters"
 tput sgr0
@@ -62,7 +62,7 @@ echo
 	echo "################################################################## "
 
 	if [ "$archisoVersion" == "$archisoRequiredVersion" ]; then
-		tput setaf 2
+		tput setaf 6
 		echo "##################################################################"
 		echo "Archiso has the correct version. Continuing ..."
 		echo "##################################################################"
