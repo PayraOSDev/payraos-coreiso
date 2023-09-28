@@ -28,4 +28,5 @@ file_permissions=(
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/payraos-rm"]="0:0:755"
   ["/usr/local/bin/payraos-rm"]="0:0:755"
+  ["/etc/grub.d/40_custom"]="0:0:755"
 )
