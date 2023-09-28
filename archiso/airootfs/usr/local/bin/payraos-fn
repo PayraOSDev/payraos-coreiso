@@ -68,4 +68,4 @@ rm -f /etc/systemd/system/etc-pacman.d-gnupg.mount
 echo "#################################"
 echo "End carli-final"
 echo "#################################"
-rm /usr/local/bin/carli-final
+rm /usr/local/bin/payraos-fn

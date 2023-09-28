@@ -15,7 +15,7 @@ mv /etc/mkinitcpio.d/payraos /etc/mkinitcpio.d/linux.preset
 echo "Putting grub theme in again"
 echo "#################################"
 mkdir -p /boot/grub/themes
-cp -Rf /usr/share/grub/themes/viper /boot/grub/themes/
+cp -Rf /usr/share/grub/themes/payraos /boot/grub/themes/
 
 echo "#################################"
 echo "End "
