@@ -128,3 +128,13 @@ wvdial
 xfsprogs
 xl2tpd
 zsh
+
+#Fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+noto-fonts-extra
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+
+#
